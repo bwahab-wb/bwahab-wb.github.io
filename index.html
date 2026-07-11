@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camille Rey — Portfolio</title>
+  <meta name="description" content="Portfolio de Camille Rey">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation en onglets latéraux (desktop) / barre haute (mobile) -->
+  <nav class="tabs" aria-label="Navigation principale">
+    <div class="tabs__brand">CR</div>
+    <ul class="tabs__list">
+      <li><a href="#profil" class="tabs__link is-active" data-section="profil">Profil</a></li>
+      <li><a href="#parcours" class="tabs__link" data-section="parcours">Parcours</a></li>
+      <li><a href="#projets" class="tabs__link" data-section="projets">Projets</a></li>
+      <li><a href="#contact" class="tabs__link" data-section="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- SECTION PROFIL -->
+    <section id="profil" class="section section--hero">
+      <div class="section__inner">
+        <p class="eyebrow">Dossier — Profil</p>
+        <h1 class="hero__title">Camille Rey</h1>
+        <p class="hero__tagline">Je construis des choses à la croisée du code, du design et des idées — et je documente le chemin autant que le résultat.</p>
+        <div class="hero__meta">
+          <span>Basée à Lyon, France</span>
+          <span class="divider">·</span>
+          <span>Disponible pour missions freelance</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PARCOURS -->
+    <section id="parcours" class="section">
+      <div class="section__inner">
+        <p class="eyebrow">Dossier — Parcours</p>
+        <h2 class="section__title">Ce que je fais</h2>
+        <div class="grid-cards">
+          <article class="card">
+            <span class="card__tag">01</span>
+            <h3>Développement</h3>
+            <p>Sites et applications front-end, du prototype à la mise en production. HTML, CSS, JavaScript, et un souci constant de la performance.</p>
+          </article>
+          <article class="card">
+            <span class="card__tag">02</span>
+            <h3>Design d'interface</h3>
+            <p>Maquettes et systèmes de composants pensés pour être cohérents, accessibles, et agréables à utiliser au quotidien.</p>
+          </article>
+          <article class="card">
+            <span class="card__tag">03</span>
+            <h3>Contenu &amp; écriture</h3>
+            <p>Rédaction de contenus clairs, structuration de l'information, documentation technique.</p>
+          </article>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <span class="timeline__year">2024 — Aujourd'hui</span>
+            <p><strong>Intitulé du poste</strong> — Nom de l'entreprise. Brève description de la mission ou des responsabilités.</p>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__year">2022 — 2024</span>
+            <p><strong>Intitulé du poste</strong> — Nom de l'entreprise. Brève description de la mission ou des responsabilités.</p>
+          </div>
+          <div class="timeline__item">
+            <span class="timeline__year">2020 — 2022</span>
+            <p><strong>Formation</strong> — Nom de l'établissement. Diplôme obtenu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PROJETS -->
+    <section id="projets" class="section">
+      <div class="section__inner">
+        <p class="eyebrow">Dossier — Projets</p>
+        <h2 class="section__title">Travaux sélectionnés</h2>
+        <div class="projects">
+          <article class="project">
+            <div class="project__index">01</div>
+            <div class="project__body">
+              <h3>Nom du projet</h3>
+              <p>Description courte : le problème posé, l'approche choisie, le résultat obtenu.</p>
+              <div class="project__tags">
+                <span>JavaScript</span><span>CSS</span><span>API</span>
+              </div>
+              <a href="#" class="project__link">Voir le projet →</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project__index">02</div>
+            <div class="project__body">
+              <h3>Nom du projet</h3>
+              <p>Description courte : le problème posé, l'approche choisie, le résultat obtenu.</p>
+              <div class="project__tags">
+                <span>Design</span><span>Figma</span>
+              </div>
+              <a href="#" class="project__link">Voir le projet →</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project__index">03</div>
+            <div class="project__body">
+              <h3>Nom du projet</h3>
+              <p>Description courte : le problème posé, l'approche choisie, le résultat obtenu.</p>
+              <div class="project__tags">
+                <span>Python</span><span>Data</span>
+              </div>
+              <a href="#" class="project__link">Voir le projet →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="section section--contact">
+      <div class="section__inner">
+        <p class="eyebrow">Dossier — Contact</p>
+        <h2 class="section__title">Discutons</h2>
+        <p class="contact__text">La meilleure façon de me joindre reste l'e-mail. Je réponds généralement sous 48h.</p>
+        <a href="mailto:camille.rey@exemple.com" class="contact__email">camille.rey@exemple.com</a>
+        <ul class="contact__links">
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">CV (PDF)</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Camille Rey</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
