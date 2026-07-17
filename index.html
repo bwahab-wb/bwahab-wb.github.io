@@ -1,80 +1,333 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wahab Bissiriou — Portfolio</title>
-  <meta name="description" content="Portfolio de Wahab Bissiriou, administrateur Réseaux et Systèmes">
+  <title>Wahab Bissiriou — Ingénieur Réseaux &amp; Systèmes</title>
+  <meta name="description" content="Portfolio de Wahab Bissiriou, ingénieur réseaux et systèmes : infrastructures multi-sites, sécurité, pilotage de projets IT.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="profil">
+<body>
 
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <nav class="tabs" aria-label="Navigation principale">
-    <div class="tabs__brand">WB</div>
-    <ul class="tabs__list">
-      <li><a href="index.html" class="tabs__link" data-page="profil">Profil</a></li>
-      <li><a href="parcours.html" class="tabs__link" data-page="parcours">Parcours</a></li>
-      <li><a href="competences.html" class="tabs__link" data-page="competences">Compétences</a></li>
-      <li><a href="projets.html" class="tabs__link" data-page="projets">Projets</a></li>
-      <li><a href="contact.html" class="tabs__link" data-page="contact">Contact</a></li>
+  <!-- ===== Navigation latérale (scroll-spy) ===== -->
+  <nav class="rail" aria-label="Navigation principale">
+    <a href="#profil" class="rail__brand" aria-label="Retour en haut">WB<span class="rail__cursor">_</span></a>
+    <ul class="rail__list">
+      <li><a href="#profil"      class="rail__link" data-section="profil"><span class="rail__num">01</span>Profil</a></li>
+      <li><a href="#experience"    class="rail__link" data-section="experience"><span class="rail__num">02</span>Expérience</a></li>
+      <li><a href="#expertise" class="rail__link" data-section="expertise"><span class="rail__num">03</span>Expertise</a></li>
+      <li><a href="#realisations"     class="rail__link" data-section="realisations"><span class="rail__num">04</span>Réalisations</a></li>
+      <li><a href="#contact"     class="rail__link" data-section="contact"><span class="rail__num">05</span>Contact</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Basculer le thème clair/sombre" aria-pressed="false">
-      <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-    </button>
+    <div class="rail__bottom">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Basculer le thème clair/sombre" aria-pressed="false">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
   </nav>
 
   <main>
 
-    <section class="section section--hero">
-      <div class="section__inner">
-        <div class="hero__layout">
-          <div class="hero__photo-frame">
-            <img src="photo.jpg" alt="Portrait de Wahab Bissiriou" class="hero__photo">
-          </div>
-          <div class="hero__content">
-            <p class="eyebrow">Profil</p>
-            <h1 class="hero__title">Wahab Bissiriou</h1>
-            <p class="hero__tagline">De nature curieuse et très attaché à la technologie, l'idée d'apprendre et de découvrir continuellement est ma devise de travail.</p>
+    <!-- ===== 01 · Hero / Profil ===== -->
+    <section id="profil" class="section section--hero">
+      <div class="section__inner section__inner--wide">
+        <div class="hero">
+          <div class="hero__text">
+            <p class="terminal-line"><span class="terminal-prompt">~$</span> whoami</p>
+            <h1 class="hero__title">Wahab<br>Bissiriou</h1>
+            <p class="hero__role"><span id="typed-role"></span><span class="typed-caret" aria-hidden="true"></span></p>
+            <p class="hero__tagline">
+              J'exploite, je sécurise et je fais évoluer des infrastructures réseaux multi-sites
+              pour des clients de tous secteurs — et je pilote les projets qui vont avec,
+              de l'avant-vente à la mise en production.
+            </p>
             <div class="hero__meta">
+              <span class="status-dot" aria-hidden="true"></span>
               <span>Nantes, France</span>
               <span class="divider">·</span>
-              <span>En poste et à l'écoute de nouvelles opportunités</span>
+              <span>En poste chez APSSI Group, à l'écoute de nouvelles opportunités</span>
+            </div>
+            <div class="hero__actions">
+              <a href="#realisations" class="btn btn--primary">Voir mes projets</a>
+              <a href="#contact" class="btn btn--ghost">Me contacter</a>
+            </div>
+          </div>
+          <div class="hero__photo-frame">
+            <img src="photo.jpg" alt="Portrait de Wahab Bissiriou" class="hero__photo">
+            <div class="hero__photo-badge mono">ingénieur réseaux<br>&amp; systèmes</div>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <div class="stat"><dt class="stat__value" data-count="30" data-suffix="+">30+</dt><dd>firewalls migrés</dd></div>
+          <div class="stat"><dt class="stat__value" data-count="6">6</dt><dd>sites interconnectés sur un même projet</dd></div>
+          <div class="stat"><dt class="stat__value" data-count="95" data-suffix="%">95%</dt><dd>de migrations sans coupure ressentie</dd></div>
+          <div class="stat"><dt class="stat__value" data-count="6">6</dt><dd>certifications réseaux, sécurité &amp; méthode</dd></div>
+        </dl>
+
+        <div class="about-grid">
+          <div class="panel">
+            <p class="panel__label mono">// qui je suis</p>
+            <p>Ingénieur généraliste <strong>EIGSI</strong> (dominante architecture des réseaux et systèmes d'information),
+            je travaille en ESN sur un portefeuille multi-clients : secteur public, PME-PMI et grands comptes.
+            Chaque semaine change — nouveaux environnements, nouvelles contraintes, nouveaux interlocuteurs.</p>
+          </div>
+          <div class="panel">
+            <p class="panel__label mono">// ma méthode</p>
+            <p>Une infrastructure bien administrée est une infrastructure <strong>documentée</strong> :
+            schémas clairs, matrices de flux commentées, procédures à jour. J'automatise ce qui se répète
+            (PowerShell au quotidien) et je soigne la communication client à chaque étape d'un projet.</p>
+          </div>
+          <div class="panel">
+            <p class="panel__label mono">// en ce moment</p>
+            <p>Je me forme en autodidacte à l'<strong>automatisation de workflows</strong> (Make, Zapier, Power Automate)
+            — prochain défi : <strong>Ansible</strong>. Anglais B2 opérationnel (Linguaskill), pratiqué en réunions
+            avec des partenaires anglophones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 · Parcours ===== -->
+    <section id="experience" class="section">
+      <div class="section__inner">
+        <p class="eyebrow mono">02 — Expérience</p>
+        <h2 class="section__title">Du terrain d'ESN aux projets d'infrastructure</h2>
+        <p class="section__lede">De la formation d'ingénieur au terrain en ESN : trois environnements,
+        une constante — des infrastructures à fiabiliser et des projets à mener au bout.</p>
+
+        <div class="timeline">
+          <article class="timeline__item">
+            <div class="timeline__side">
+              <span class="timeline__year mono">Depuis mars 2023</span>
+              <span class="timeline__place">Pont-Saint-Martin · CDI</span>
+            </div>
+            <div class="timeline__body">
+              <h3>Administrateur Réseaux &amp; Sécurité <span class="at">— APSSI Group (ESN)</span></h3>
+              <p>Exploitation, sécurisation et évolution d'infrastructures LAN/WAN multi-sites
+              (support N2/N3) pour l'ensemble des clients du groupe.</p>
+              <ul class="timeline__list">
+                <li>Déploiement et migration d'équipements réseaux &amp; sécurité : firewalls et RED Sophos, Fortinet, switchs Cisco, D-Link, Alcatel, Unify, NAS Synology/QNAP, sauvegarde Veeam.</li>
+                <li>Administration Windows Server (AD, DHCP, DNS, GPO, serveurs de fichiers), virtualisation VMware ESXi/vCenter et Hyper-V, M365/Entra ID, Wi-Fi.</li>
+                <li>Gestion EDR/XDR via Sophos Central ; anti-spam Sophos Email Protection, Hornetsecurity, MailinBlack ; supervision Centreon.</li>
+                <li>Scripting PowerShell quotidien pour l'administration des serveurs Windows.</li>
+                <li>Audits et documentation d'entrée de nouveaux clients, schémas réseaux, amélioration continue — dont un process automatisé Power Automate (+20 % d'efficacité opérationnelle).</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__side">
+              <span class="timeline__year mono">Mai — Sept. 2023</span>
+              <span class="timeline__place">Pessac · Stage</span>
+            </div>
+            <div class="timeline__body">
+              <h3>Administrateur Systèmes &amp; Réseaux <span class="at">— ADI Nouvelle-Aquitaine</span></h3>
+              <ul class="timeline__list">
+                <li>Pilotage de la migration d'un UTM Stormshield vers un firewall FortiGate dans un environnement multi-agences (80+ utilisateurs).</li>
+                <li>Déploiement de Windows LAPS sur 84 postes avec intégration Entra ID — +70 % de gain de temps sur les déploiements.</li>
+                <li>Supervision proactive via Centreon, gestion des tickets et SLA via Zendesk.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__side">
+              <span class="timeline__year mono">Juil. 2021 — Mars 2025</span>
+              <span class="timeline__place">La Rochelle</span>
+            </div>
+            <div class="timeline__body">
+              <h3>Diplôme d'ingénieur généraliste <span class="at">— EIGSI</span></h3>
+              <p>Dominante Architecture des Réseaux et Systèmes d'Information.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 · Compétences ===== -->
+    <section id="expertise" class="section">
+      <div class="section__inner section__inner--wide">
+        <p class="eyebrow mono">03 — Expertise</p>
+        <h2 class="section__title">Réseaux, sécurité, systèmes — et la méthode pour les piloter</h2>
+        <p class="section__lede">Construit sur le terrain, du support quotidien à la conduite
+        de projets d'infrastructure de bout en bout.</p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[net]</span> Réseaux</h3>
+            <div class="pills">
+              <span>LAN / WAN / WLAN</span><span>VLAN</span><span>Routage</span><span>VPN IPsec &amp; SSL</span><span>MPLS</span><span>Switchs Cisco</span><span>D-Link</span><span>Alcatel</span><span>Unify</span><span>Wi-Fi</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[sec]</span> Sécurité</h3>
+            <div class="pills">
+              <span>Firewalls Sophos + RED</span><span>Fortinet</span><span>Stormshield</span><span>Pfsense</span><span>XDR / EDR Sophos Central</span><span>Sophos Email Protection</span><span>Hornetsecurity</span><span>MailinBlack</span><span>Windows LAPS</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[sys]</span> Systèmes &amp; virtualisation</h3>
+            <div class="pills">
+              <span>Windows Server</span><span>Active Directory</span><span>DHCP / DNS / GPO</span><span>RDS</span><span>Serveurs de fichiers</span><span>VMware ESXi / vCenter</span><span>Hyper-V</span><span>Linux</span><span>Veeam</span><span>NAS Synology / QNAP</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[cld]</span> Cloud &amp; modern workplace</h3>
+            <div class="pills">
+              <span>Microsoft 365</span><span>Entra ID (Azure AD)</span><span>Intune</span><span>Téléphonie &amp; DLP M365</span><span>OCS Inventory</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[aut]</span> Automatisation &amp; scripting</h3>
+            <div class="pills">
+              <span>PowerShell (quotidien)</span><span>Bash</span><span>Power Automate</span><span>Make</span><span>Zapier</span><span>Python</span><span>Ansible</span><span>GitLab</span><span>Docker</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-card__title"><span class="skill-card__icon mono">[pmo]</span> Pilotage &amp; méthode</h3>
+            <div class="pills">
+              <span>Gestion de projet de bout en bout</span><span>Avant-vente</span><span>Matrices de flux</span><span>Schémas réseaux</span><span>Documentation technique</span><span>Tickets &amp; SLA (Zendesk)</span><span>Supervision Centreon</span>
             </div>
           </div>
         </div>
 
-        <div class="grid-cards">
-          <a href="parcours.html" class="card card--link">
-            <span class="card__tag">01</span>
-            <h3>Parcours</h3>
-            <p>Trois ans d'expérience en administration réseaux et systèmes, formation d'ingénieur spécialisé.</p>
-            <span class="card__more">Voir le parcours →</span>
-          </a>
-          <a href="competences.html" class="card card--link">
-            <span class="card__tag">02</span>
-            <h3>Compétences</h3>
-            <p>Réseaux, sécurité, systèmes et gestion de projet — le détail des outils et méthodes.</p>
-            <span class="card__more">Voir les compétences →</span>
-          </a>
-          <a href="projets.html" class="card card--link">
-            <span class="card__tag">03</span>
-            <h3>Projets</h3>
-            <p>Migrations de firewalls, restructuration des droits d'accès — des cas concrets.</p>
-            <span class="card__more">Voir les projets →</span>
-          </a>
+        <div class="certs">
+          <p class="panel__label mono">// certifications</p>
+          <ul class="certs__list">
+            <li><strong>CCNA 1 &amp; 2</strong><span class="mono">Cisco · 2023</span></li>
+            <li><strong>ET80 — Sophos Firewall Engineer v21.0</strong><span class="mono">Sophos</span></li>
+            <li><strong>ET12 — Sophos Detection &amp; Response v5.5</strong><span class="mono">Sophos</span></li>
+            <li><strong>Cybersécurité — SecNumacadémie</strong><span class="mono">ANSSI · 2025</span></li>
+            <li><strong>Antispam</strong><span class="mono">Hornetsecurity · 2025</span></li>
+            <li><strong>Lean Six Sigma Yellow Belt</strong><span class="mono">2023</span></li>
+          </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== 04 · Projets ===== -->
+    <section id="realisations" class="section">
+      <div class="section__inner">
+        <p class="eyebrow mono">04 — Réalisations</p>
+        <h2 class="section__title">Des projets menés de bout en bout</h2>
+        <p class="section__lede">Une sélection de projets représentatifs : infrastructure, sécurité,
+        organisation — toujours avec la même exigence de documentation et de continuité de service.</p>
+
+        <div class="projects">
+
+          <article class="project">
+            <header class="project__header">
+              <span class="project__index mono">P-01</span>
+              <h3>Migrations de firewalls multi-sites, sans coupure ressentie</h3>
+              <div class="project__chips mono">
+                <span>5 sites distants</span><span>40+ collaborateurs</span><span>6 mois</span><span>pilotage bout en bout</span>
+              </div>
+            </header>
+            <div class="project__grid">
+              <div class="project__block"><span class="project__block-label mono">Situation</span>
+                <p>Les sites d'un client s'appuyaient sur des firewalls Zyxel en fin de vie, insuffisants face aux exigences de sécurité actuelles.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Mission</span>
+                <p>Piloter le remplacement de bout en bout : étude avant-vente, préconisation des modèles Sophos adaptés, coordination des opérations sur chaque site.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Actions</span>
+                <p>Préparation des matrices de flux, nettoyage des configurations existantes, bascule planifiée sur la pause méridienne avec reprise de service en ~10 minutes par site.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Résultat</span>
+                <p>Migration réussie sur l'ensemble des sites, sans interruption ressentie par le client dans 95 % des cas. Une méthode depuis éprouvée sur <strong>plus de 30 firewalls migrés</strong>.</p></div>
+            </div>
+            <div class="project__tags mono"><span>Sophos</span><span>Zyxel</span><span>Matrice de flux</span><span>Avant-vente</span><span>Gestion de projet</span></div>
+          </article>
+
+          <article class="project">
+            <header class="project__header">
+              <span class="project__index mono">P-02</span>
+              <h3>Architecture d'interconnexion de 6 sites, installée 100 % à distance</h3>
+              <div class="project__chips mono">
+                <span>6 sites</span><span>switchs D-Link</span><span>installation à distance</span><span>0 incident</span>
+              </div>
+            </header>
+            <div class="project__grid">
+              <div class="project__block"><span class="project__block-label mono">Situation</span>
+                <p>Un client devait interconnecter 6 sites, avec une contrainte forte : l'intervenant chargé de l'installation physique travaillait entièrement à distance.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Mission</span>
+                <p>Concevoir une architecture d'interconnexion fiable sur switchs D-Link et rendre son déploiement possible sans ma présence sur site.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Actions</span>
+                <p>Conception de l'architecture, puis documentation complète : schéma réseau, matrice de flux visuelle annotée de commentaires opérationnels, fichiers de configuration des switchs prêts à charger.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Résultat</span>
+                <p>Installation réalisée sans accroc du premier coup, client satisfait. La preuve qu'une documentation soignée est un livrable à part entière.</p></div>
+            </div>
+            <div class="project__tags mono"><span>D-Link</span><span>Architecture réseau</span><span>Documentation</span><span>Interconnexion de sites</span></div>
+          </article>
+
+          <article class="project">
+            <header class="project__header">
+              <span class="project__index mono">P-03</span>
+              <h3>Refonte d'arborescence &amp; droits d'accès avec la méthode GDLP</h3>
+              <div class="project__chips mono">
+                <span>4 niveaux</span><span>25+ collaborateurs</span><span>1 mois</span><span>pilotage bout en bout</span>
+              </div>
+            </header>
+            <div class="project__grid">
+              <div class="project__block"><span class="project__block-label mono">Situation</span>
+                <p>Sur le serveur de fichiers d'un client : des droits nominatifs dans tous les sens, des comptes supprimés, aucune traçabilité — impossible de savoir qui accède à quoi.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Mission</span>
+                <p>Cerner le besoin exact du client, puis refondre la structure des permissions pour la rendre claire, auditable et évolutive.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Actions</span>
+                <p>Réunion de lancement, formalisation et phasage du projet. Application du modèle GDLP, industrialisée en PowerShell : création de l'arborescence et des UO, génération des groupes de domaine et de service, affectation des permissions, rapatriement des données, recette face au cahier des charges.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Résultat</span>
+                <p>Mise en production sans arrêt de service ni réajustement a posteriori. Client informé à chaque étape, échéances tenues, structure prête à absorber la croissance.</p></div>
+            </div>
+            <div class="project__tags mono"><span>Active Directory</span><span>GDLP</span><span>PowerShell</span><span>Gestion de projet</span></div>
+          </article>
+
+          <article class="project">
+            <header class="project__header">
+              <span class="project__index mono">P-04</span>
+              <h3>Automatisation d'un processus interne avec Power Automate</h3>
+              <div class="project__chips mono">
+                <span>amélioration continue</span><span>+20 % d'efficacité</span>
+              </div>
+            </header>
+            <div class="project__grid">
+              <div class="project__block"><span class="project__block-label mono">Situation</span>
+                <p>Un processus interne répétitif, chronophage et hétérogène selon les intervenants.</p></div>
+              <div class="project__block"><span class="project__block-label mono">Actions</span>
+                <p>Cartographie du processus existant, standardisation des étapes, puis conception d'un flux automatisé basé sur Power Automate.</p></div>
+              <div class="project__block project__block--wide"><span class="project__block-label mono">Résultat</span>
+                <p>Environ +20 % d'efficacité opérationnelle sur le périmètre concerné — et une démarche d'amélioration continue désormais ancrée dans mon quotidien.</p></div>
+            </div>
+            <div class="project__tags mono"><span>Power Automate</span><span>Cartographie de processus</span><span>Amélioration continue</span></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05 · Contact ===== -->
+    <section id="contact" class="section section--contact">
+      <div class="section__inner">
+        <p class="eyebrow mono">05 — Contact</p>
+        <h2 class="section__title">Discutons</h2>
+        <p class="contact__text">Un poste d'ingénieur ou d'administrateur réseaux &amp; systèmes, une mission
+        de pilotage de projet IT, ou simplement envie d'échanger ? La meilleure façon de me joindre
+        reste l'e-mail — je réponds généralement sous 12 h.</p>
+        <a href="mailto:wabissiriou@gmail.com" class="contact__email">wabissiriou@gmail.com</a>
+        <ul class="contact__links mono">
+          <li><a href="https://www.linkedin.com/in/wahabbissiriou/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/bwahab-wb" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Wahab Bissiriou</p>
+  <footer class="footer mono">
+    <p>© <span id="year"></span> Wahab Bissiriou — conçu et maintenu sur GitHub Pages</p>
   </footer>
 
   <script src="script.js"></script>
