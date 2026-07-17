@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="WB">
-  <!-- Anneau extérieur bleu clair -->
-  <circle cx="32" cy="32" r="30.2" fill="none" stroke="#AFC8EE" stroke-width="2.4"/>
-  <!-- Disque bleu nuit -->
-  <circle cx="32" cy="32" r="27" fill="#131C31"/>
-  <!-- Monogramme WB -->
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+  <!-- Fond bleu nuit, carré arrondi -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#111B31"/>
+  <!-- Monogramme WB bicolore : W bleu clair, B blanc -->
+  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
         font-family="Arial, 'Helvetica Neue', Helvetica, sans-serif"
-        font-size="30" font-weight="900" letter-spacing="-1.5" fill="#A6C7F4">WB</text>
+        font-size="32" font-weight="800" letter-spacing="-1">
+    <tspan fill="#6FB0FF">W</tspan><tspan fill="#FFFFFF">B</tspan>
+  </text>
 </svg>
