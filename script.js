@@ -352,3 +352,63 @@ if (themeToggle) {
   resize();
   loop();
 })();
+
+/* ===== Google Analytics (GA4) — chargé uniquement après consentement =====
+   Respecte le RGPD : aucune requête vers Google tant que le visiteur
+   n'a pas cliqué sur "Accepter". Le choix est mémorisé et modifiable
+   à tout moment via le lien "Gérer les cookies" du pied de page. */
+(function analyticsConsent() {
+  const GA_ID = "G-SFLBKN1557";
+  const CONSENT_KEY = "ga-consent";
+
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const declineBtn = document.getElementById("cookie-decline");
+  const manageBtn = document.getElementById("cookie-manage");
+
+  function loadGA() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+  }
+
+  function showBanner() { if (banner) banner.classList.add("is-visible"); }
+  function hideBanner() { if (banner) banner.classList.remove("is-visible"); }
+
+  function getConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+  }
+  function setConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* stockage indisponible, on continue sans mémoriser */ }
+  }
+
+  const consent = getConsent();
+  if (consent === "accepted") {
+    loadGA();
+  } else if (consent !== "declined") {
+    showBanner();
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener("click", () => {
+    setConsent("accepted");
+    loadGA();
+    hideBanner();
+  });
+  if (declineBtn) declineBtn.addEventListener("click", () => {
+    setConsent("declined");
+    hideBanner();
+  });
+  if (manageBtn) manageBtn.addEventListener("click", () => {
+    showBanner();
+  });
+})();

@@ -352,8 +352,16 @@
   </main>
 
   <footer class="footer mono">
-    <p>© <span id="year"></span> Wahab Bissiriou — conçu et maintenu personnellement sur GitHub Pages</p>
+    <p>© <span id="year"></span> Wahab Bissiriou — conçu et maintenu personnellement sur GitHub Pages · <button id="cookie-manage" class="footer__link-btn" type="button">Gérer les cookies</button></p>
   </footer>
+
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement de mesure d'audience">
+    <p class="cookie-banner__text">Ce site utilise <strong>Google Analytics</strong> pour mesurer l'audience, de façon anonyme. Acceptes-tu le dépôt de ce cookie de mesure ?</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-decline" class="btn btn--ghost" type="button">Refuser</button>
+      <button id="cookie-accept" class="btn btn--primary" type="button">Accepter</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
